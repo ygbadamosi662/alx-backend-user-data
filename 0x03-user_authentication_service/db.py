@@ -16,6 +16,9 @@ class DB:
     def __init__(self) -> None:
         """ Initialize a new DB instance """
         self._engine = create_engine("sqlite:///a.db")
+        # self._engine = create_engine('mysql+mysqlconnector://{}:{}@{}/{}'.
+        #                               format("gi_dev", "gandi", "localhost", "alx_auth"),
+        #                               pool_pre_ping=True)
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         self.__session = None
